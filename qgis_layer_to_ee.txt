@@ -1,0 +1,11 @@
+import json
+import ee
+from ee_plugin import Map
+
+layer = iface.activeLayer()
+for feature in layer.getFeatures():
+    geom = feature.geometry()
+    coordinates = json.loads(geom.asJson())['coordinates'][0]
+    geometry = ee.Geometry.Polygon(coordinates)
+    farm = ee.Feature(geometry, {'name': 'farm'})
+    fc = ee.FeatureCollection([farm])
