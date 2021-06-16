@@ -13,4 +13,4 @@ with  arcpy.da.SearchCursor(fc,fields) as cursor:
                 duplicate.append (row[0])
 
 
-dup_removed = list(dict.fromkeys(duplicate))
+print (list(dict.fromkeys(duplicate)))
