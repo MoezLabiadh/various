@@ -12,7 +12,7 @@ def fc2df (fc, fields=None):
     return df
   
   
-  def fc2df (fc, fields):
+  def fc2df (fc, fields=None):
     """Returns a df based on a Feature Class. Uses Numpy"""
         if fields:
         in_fields = fields
