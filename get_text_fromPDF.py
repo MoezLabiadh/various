@@ -30,15 +30,14 @@ for root, dirs, files in os.walk(search_dir):
         
                 startStr = text.split('Registered Owner/Mailing Address:')[1]
                 ownerInfo = startStr.split('Taxation Authority')[0]
-        
-                
+               
                 if 'HER MAJESTY THE QUEEN' in ownerInfo:
                     ownerType = 'CROWN'
                 else:
                     ownerType = 'PRIVATE'
                     
-                list_2 = text.split('Identifier:')
-                pid = list_2[1][:12]
+                iden = text.split('Identifier:')
+                pid = iden[1][:12]
         
                 val_dict['PID'].append(pid)
                 val_dict['Owner Info'].append(ownerInfo)
