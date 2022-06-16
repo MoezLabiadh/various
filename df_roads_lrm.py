@@ -5,8 +5,8 @@ file = r'//bctsdata.bcgov\tko_root\GIS_WORKSPACE\MLABIADH\GIS-REQUESTS\tempo\dea
 df = pd.read_excel(file)
 
 instance = 'lrmbctsp.nrs.bcgov/DBP06.nrs.bcgov'
-username = 'map_view_15'
-userpwd = 'sharing'
+username = ''
+userpwd = ''
 
 df_bdry  = df.loc[df['Field Team'] == 'Boundary']
 df_bdry2 = df_bdry.rename(columns={"\nName": "Name"})
