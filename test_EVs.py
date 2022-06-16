@@ -91,8 +91,8 @@ def test_tables (table_list, connection, out_loc):
 '''
 def main():
     instance = 'lrmbctsp.nrs.bcgov/DBP06.nrs.bcgov'
-    username = 'map_view_15' # use your LRM connection parameters
-    userpwd = 'sharing' # use your LRM connection parameters
+    username = '' # use your LRM connection parameters
+    userpwd = '' # use your LRM connection parameters
     connection = connect_to_OracleDB (username, userpwd, instance)
     table_list = get_tables_fromDB (connection)
     out_loc = r'\\bctsdata.bcgov\tko_root\GIS_WORKSPACE\MLABIADH\GIS-REQUESTS\tempo' # change this to your output location
