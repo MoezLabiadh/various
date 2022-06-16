@@ -9,9 +9,7 @@ import os
 import pandas as pd
 import PyPDF2 as pdf2
 
-
-
-search_dir = r'\\Sfp.idir.bcgov\u164\MLABIADH$\Profile\Desktop\ARCHIVE\2020\GIS-REQUESTS\comp-20200213-FTEK Op 21 PID Title Search Darren\serach'
+search_dir = r'\\...\PID Title Search'
 
 file_list = []  
 val_dict = {}
@@ -31,16 +29,16 @@ for file in file_list:
         page = pdf.getPage(22)
         text = page.extractText()
         
-print (text)       
-'''
         #list = text.split('Address:')
-        if 'HER MAJESTY THE QUEEN IN RIGHT OF THE PROVINCE OFBRITISH COLUMBIA' in text:
-            owner = 'HER MAJESTY THE QUEEN IN RIGHT OF THE PROVINCE OF BRITISH COLUMBIA'
+        if 'HER MAJESTY THE QUEEN' in text:
+            owner = 'CROWN'
         else:
             owner = 'PRIVATE'
+            
         list_2 = text.split('Identifier:')
         pid = list_2[1][:11]
         print ('The owner of PID {} is {}'.format(pid, owner))
+        
         val_dict['PID'].append(pid)
         val_dict['Ownership'].append(owner)
         
@@ -48,9 +46,5 @@ df = pd.DataFrame.from_dict(val_dict)
 df.index = df.index + 1
 df.index.name = '#'
 
-out_excel = r'F:\tko_root\GIS_WORKSPACE\MLABIADH\GIS-REQUESTS\ong-20210204-private_land_owners_Olivia\title_docs\status_check.csv'
-df.to_csv(out_excel)
-
-'''
-        
-        
+out_excel = r'\\...\PID Title Search\status_check.xlsx'
+df.to_excel(out_excel)
