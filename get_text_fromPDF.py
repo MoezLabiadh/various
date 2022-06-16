@@ -20,7 +20,7 @@ val_dict['Owner Type'] = []
 
 for root, dirs, files in os.walk(search_dir):
     for file in files:
-        if file.endswith("297.pdf"):
+        if file.endswith(".pdf"):
                 file_path = os.path.join(root, file)
                 file_list.append (file_path)
         
