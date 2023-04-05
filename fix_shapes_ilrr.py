@@ -21,6 +21,6 @@ gdf['dissolve'] = 1
 gdf = gdf.dissolve(by='dissolve')
 
 if not gdf.crs.to_epsg() == 3005:
-    gdf = gdf.to_crs({'init': 'epsg:3005'})
+    gdf = gdf.to_crs(3005)
     
 gdf.to_file(os.path.join(wks,'fixed_'+kml_n[:-4]+'.shp'))
